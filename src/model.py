@@ -12,6 +12,7 @@ Session = sessionmaker(bind=engine)
 # Criando uma instância de sessão para interagir com o banco de dados
 session = Session()
 
+
 # Classe mapeada que representa uma tabela no banco de dados
 class Result(Base):
     # Nome da tabela no banco de dados.
@@ -30,11 +31,19 @@ class Result(Base):
     def __repr__(self):
         return f"<Endereco(id={self.id}, nome='{self.nome}', logradouro='{self.logradouro}', bairro='{self.bairro}', cidade='{self.cidade}', estado='{self.estado}', cep='{self.cep}', telefone='{self.telefone}', website='{self.website}')>"
 
+
 def inserir_dados(lista):
     # Inserir a lista com dados no banco de dados.
     session.add_all(lista)
-    session.commit()
+    try:
+        session.commit()
+        print("Dados inseridos com sucesso!")
+    except Exception as e:
+        print(f"Erro! {e}")
 
 
 def inicializar_bd():
-    Base.metadata.create_all(engine)
+    try:
+        Base.metadata.create_all(engine)
+    except Exception as e:
+        print(f"Erro! {e}")
