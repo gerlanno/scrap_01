@@ -83,5 +83,5 @@ def processar_dados(dict_pesquisa):
             )
     except Exception as e:
         print(f"Erro! {e}")
-    os.system("clear" if sys.platform == "LINUX" else "cls")    
+    #os.system("clear" if sys.platform == "LINUX" else "cls")    
     return lista_resultados

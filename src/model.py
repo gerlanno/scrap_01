@@ -34,12 +34,16 @@ class Result(Base):
 
 def inserir_dados(lista):
     # Inserir a lista com dados no banco de dados.
-    session.add_all(lista)
-    try:
-        session.commit()
-        print("Dados inseridos com sucesso!")
-    except Exception as e:
-        print(f"Erro! {e}")
+    if not lista:
+        print("Nada a processar!")
+    else:
+
+        try:
+            session.add_all(lista)
+            session.commit()
+            print("Dados inseridos com sucesso!")
+        except Exception as e:
+            print(f"Erro! {e}")
 
 
 def inicializar_bd():
