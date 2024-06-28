@@ -21,7 +21,7 @@ def google_maps(query):
         "q": query,
         "type": "search",
         "hl": "pt-br",
-        "ll": "@-3.775399,-38.521686,25.5z",
+        "ll": "@-3.7318616,-38.5266704,18z",
         "api_key": settings.API_KEY,
     }
     search = GoogleSearch(params)  # Obter dados da pesquisa
